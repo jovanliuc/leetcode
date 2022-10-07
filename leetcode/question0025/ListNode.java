@@ -1,4 +1,4 @@
-package datastructure.listnode;
+package leetcode.question0025;
 
 public class ListNode {
 
