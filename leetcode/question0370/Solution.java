@@ -1,6 +1,13 @@
-package leetcode.leetcode0370;
+package leetcode.question0370;
+
+import org.junit.jupiter.api.Test;
 
 public class Solution {
+
+    @Test
+    void test() {
+        getModifiedArray(9, null);
+    }
 
     private int[] nums;
     private int[] diff;
