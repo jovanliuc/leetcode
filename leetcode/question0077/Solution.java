@@ -29,6 +29,7 @@ public class Solution {
     private void backtrack(int[] nums, int layer) {
         if (trackList.size() == count) {
             result.add(new LinkedList<>(trackList));
+            return;
         }
 
         for (int i = layer; i < nums.length; i++) {
