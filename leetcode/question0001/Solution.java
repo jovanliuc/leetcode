@@ -10,7 +10,7 @@ public class Solution {
 
     @Test
     void test() {
-        twoSum(null, 0);
+        twoSum(new int[]{2,7,11,15}, 9);
     }
 
     public int[] twoSum(int[] nums, int target) {
