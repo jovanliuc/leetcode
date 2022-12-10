@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class Solution {
+public class Solution1 {
 
     @Test
     void test() {
@@ -33,26 +33,22 @@ public class Solution {
             return 0;
         }
 
+        int res = 0;
         int len = nums.length;
-        int[] top = new int[len];
-        int piles = 0;
-        for (int i = 0; i < len; i++) {
-            int poker = nums[i];
-            int left = 0, right = piles;
-            while (left < right) {
-                int mid = (left + right) / 2;
-                if (top[mid] > poker) {
-                    right = mid;
-                } else if (top[mid] < poker) {
-                    left = mid + 1;
-                } else {
-                    right = mid;
+        int[] dp = new int[len];
+        Arrays.fill(dp, 1);
+        for (int i = 1; i < len; i++) {
+            for (int j = i -1; j >=0; j--) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            if (left == piles) piles++;
-            top[left] = poker;
         }
 
-        return piles;
+        for (int i = 0; i < len; i++) {
+            res = Math.max(res, dp[i]);
+        }
+
+        return res;
     }
 }
